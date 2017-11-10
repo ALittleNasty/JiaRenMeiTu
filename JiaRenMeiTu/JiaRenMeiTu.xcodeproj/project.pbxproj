@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		23B2A1A92BA9FF102F88D7B6 /* libPods-JiaRenMeiTu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */; };
+		39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */; };
+		39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */; };
+		39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */; };
 		39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F3F73C1FB431FF008ECE98 /* AppDelegate.m */; };
 		39F3F7431FB431FF008ECE98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7411FB431FF008ECE98 /* Main.storyboard */; };
 		39F3F7451FB431FF008ECE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7441FB431FF008ECE98 /* Assets.xcassets */; };
@@ -23,6 +26,11 @@
 
 /* Begin PBXFileReference section */
 		00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiaRenMeiTu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39E82EE21FB581C500C3DEEF /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
+		39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
+		39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTHomeCollectionCell.h; sourceTree = "<group>"; };
+		39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTHomeCollectionCell.m; sourceTree = "<group>"; };
+		39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MTHomeCollectionCell.xib; sourceTree = "<group>"; };
 		39F3F7381FB431FF008ECE98 /* JiaRenMeiTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiaRenMeiTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F3F73B1FB431FF008ECE98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39F3F73C1FB431FF008ECE98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -55,6 +63,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39E82EE11FB580D500C3DEEF /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				39E82EE21FB581C500C3DEEF /* UIColor+HEX.h */,
+				39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */,
+			);
+			path = Vender;
+			sourceTree = "<group>";
+		};
+		39E82EE51FB5853900C3DEEF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */,
+				39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */,
+				39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		39F3F72F1FB431FF008ECE98 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +118,8 @@
 		39F3F7511FB435A8008ECE98 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				39E82EE51FB5853900C3DEEF /* Cell */,
+				39E82EE11FB580D500C3DEEF /* Vender */,
 				39F3F7591FB456D9008ECE98 /* Images */,
 				39F3F7521FB4360E008ECE98 /* Controller */,
 			);
@@ -204,6 +233,7 @@
 				39F3F7601FB456D9008ECE98 /* bg_03.jpg in Resources */,
 				39F3F7431FB431FF008ECE98 /* Main.storyboard in Resources */,
 				39F3F75F1FB456D9008ECE98 /* bg_02.jpg in Resources */,
+				39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +296,8 @@
 				39F3F74B1FB431FF008ECE98 /* main.m in Sources */,
 				39F3F7551FB4361F008ECE98 /* MTLaunchViewController.m in Sources */,
 				39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */,
+				39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */,
+				39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
