@@ -11,6 +11,10 @@
 		39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */; };
 		39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */; };
 		39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */; };
+		39E82EED1FB5956700C3DEEF /* MTJigsawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EEC1FB5956700C3DEEF /* MTJigsawViewController.m */; };
+		39E82EF01FB595BF00C3DEEF /* MTPhotoAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EEF1FB595BF00C3DEEF /* MTPhotoAlbumViewController.m */; };
+		39E82EF41FB5994900C3DEEF /* MTPhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EF21FB5994900C3DEEF /* MTPhotoCollectionCell.m */; };
+		39E82EF51FB5994900C3DEEF /* MTPhotoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EF31FB5994900C3DEEF /* MTPhotoCollectionCell.xib */; };
 		39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F3F73C1FB431FF008ECE98 /* AppDelegate.m */; };
 		39F3F7431FB431FF008ECE98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7411FB431FF008ECE98 /* Main.storyboard */; };
 		39F3F7451FB431FF008ECE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7441FB431FF008ECE98 /* Assets.xcassets */; };
@@ -31,6 +35,14 @@
 		39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTHomeCollectionCell.h; sourceTree = "<group>"; };
 		39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTHomeCollectionCell.m; sourceTree = "<group>"; };
 		39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MTHomeCollectionCell.xib; sourceTree = "<group>"; };
+		39E82EEB1FB5956700C3DEEF /* MTJigsawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTJigsawViewController.h; sourceTree = "<group>"; };
+		39E82EEC1FB5956700C3DEEF /* MTJigsawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJigsawViewController.m; sourceTree = "<group>"; };
+		39E82EEE1FB595BF00C3DEEF /* MTPhotoAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoAlbumViewController.h; sourceTree = "<group>"; };
+		39E82EEF1FB595BF00C3DEEF /* MTPhotoAlbumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoAlbumViewController.m; sourceTree = "<group>"; };
+		39E82EF11FB5994900C3DEEF /* MTPhotoCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoCollectionCell.h; sourceTree = "<group>"; };
+		39E82EF21FB5994900C3DEEF /* MTPhotoCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoCollectionCell.m; sourceTree = "<group>"; };
+		39E82EF31FB5994900C3DEEF /* MTPhotoCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MTPhotoCollectionCell.xib; sourceTree = "<group>"; };
+		39E82EF61FB59B9000C3DEEF /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		39F3F7381FB431FF008ECE98 /* JiaRenMeiTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiaRenMeiTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F3F73B1FB431FF008ECE98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39F3F73C1FB431FF008ECE98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +90,9 @@
 				39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */,
 				39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */,
 				39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */,
+				39E82EF11FB5994900C3DEEF /* MTPhotoCollectionCell.h */,
+				39E82EF21FB5994900C3DEEF /* MTPhotoCollectionCell.m */,
+				39E82EF31FB5994900C3DEEF /* MTPhotoCollectionCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -133,6 +148,10 @@
 				39F3F7541FB4361F008ECE98 /* MTLaunchViewController.m */,
 				39F3F7561FB4363D008ECE98 /* MTHomeViewController.h */,
 				39F3F7571FB4363D008ECE98 /* MTHomeViewController.m */,
+				39E82EEE1FB595BF00C3DEEF /* MTPhotoAlbumViewController.h */,
+				39E82EEF1FB595BF00C3DEEF /* MTPhotoAlbumViewController.m */,
+				39E82EEB1FB5956700C3DEEF /* MTJigsawViewController.h */,
+				39E82EEC1FB5956700C3DEEF /* MTJigsawViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +170,7 @@
 		B72FBA4E66FE3864FA480172 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39E82EF61FB59B9000C3DEEF /* Photos.framework */,
 				00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */,
 			);
 			name = Frameworks;
@@ -228,6 +248,7 @@
 			files = (
 				39F3F7481FB431FF008ECE98 /* LaunchScreen.storyboard in Resources */,
 				39F3F75E1FB456D9008ECE98 /* bg_01.jpg in Resources */,
+				39E82EF51FB5994900C3DEEF /* MTPhotoCollectionCell.xib in Resources */,
 				39F3F7451FB431FF008ECE98 /* Assets.xcassets in Resources */,
 				39F3F7611FB456D9008ECE98 /* bg_04.jpg in Resources */,
 				39F3F7601FB456D9008ECE98 /* bg_03.jpg in Resources */,
@@ -294,6 +315,9 @@
 			files = (
 				39F3F7581FB4363D008ECE98 /* MTHomeViewController.m in Sources */,
 				39F3F74B1FB431FF008ECE98 /* main.m in Sources */,
+				39E82EF41FB5994900C3DEEF /* MTPhotoCollectionCell.m in Sources */,
+				39E82EF01FB595BF00C3DEEF /* MTPhotoAlbumViewController.m in Sources */,
+				39E82EED1FB5956700C3DEEF /* MTJigsawViewController.m in Sources */,
 				39F3F7551FB4361F008ECE98 /* MTLaunchViewController.m in Sources */,
 				39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */,
 				39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */,

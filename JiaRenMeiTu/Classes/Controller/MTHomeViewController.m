@@ -7,6 +7,7 @@
 //
 
 #import "MTHomeViewController.h"
+#import "MTPhotoAlbumViewController.h"
 
 #import "MTHomeCollectionCell.h"
 
@@ -118,7 +119,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%s", __func__);
+    MTPhotoAlbumViewController *albumVC = [[MTPhotoAlbumViewController alloc] init];
+    
+    [self presentViewController:albumVC animated:YES completion:NULL];
 }
 
 #pragma mark - Lazy Load
