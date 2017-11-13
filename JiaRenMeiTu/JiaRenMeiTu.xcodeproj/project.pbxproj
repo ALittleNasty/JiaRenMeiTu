@@ -16,7 +16,6 @@
 		39E82EF41FB5994900C3DEEF /* MTPhotoCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EF21FB5994900C3DEEF /* MTPhotoCollectionCell.m */; };
 		39E82EF51FB5994900C3DEEF /* MTPhotoCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EF31FB5994900C3DEEF /* MTPhotoCollectionCell.xib */; };
 		39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F3F73C1FB431FF008ECE98 /* AppDelegate.m */; };
-		39F3F7431FB431FF008ECE98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7411FB431FF008ECE98 /* Main.storyboard */; };
 		39F3F7451FB431FF008ECE98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7441FB431FF008ECE98 /* Assets.xcassets */; };
 		39F3F7481FB431FF008ECE98 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39F3F7461FB431FF008ECE98 /* LaunchScreen.storyboard */; };
 		39F3F74B1FB431FF008ECE98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F3F74A1FB431FF008ECE98 /* main.m */; };
@@ -46,7 +45,6 @@
 		39F3F7381FB431FF008ECE98 /* JiaRenMeiTu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JiaRenMeiTu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39F3F73B1FB431FF008ECE98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39F3F73C1FB431FF008ECE98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		39F3F7421FB431FF008ECE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39F3F7441FB431FF008ECE98 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39F3F7471FB431FF008ECE98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39F3F7491FB431FF008ECE98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 			children = (
 				39F3F73B1FB431FF008ECE98 /* AppDelegate.h */,
 				39F3F73C1FB431FF008ECE98 /* AppDelegate.m */,
-				39F3F7411FB431FF008ECE98 /* Main.storyboard */,
 				39F3F7441FB431FF008ECE98 /* Assets.xcassets */,
 				39F3F7461FB431FF008ECE98 /* LaunchScreen.storyboard */,
 				39F3F7491FB431FF008ECE98 /* Info.plist */,
@@ -252,7 +249,6 @@
 				39F3F7451FB431FF008ECE98 /* Assets.xcassets in Resources */,
 				39F3F7611FB456D9008ECE98 /* bg_04.jpg in Resources */,
 				39F3F7601FB456D9008ECE98 /* bg_03.jpg in Resources */,
-				39F3F7431FB431FF008ECE98 /* Main.storyboard in Resources */,
 				39F3F75F1FB456D9008ECE98 /* bg_02.jpg in Resources */,
 				39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */,
 			);
@@ -328,14 +324,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		39F3F7411FB431FF008ECE98 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				39F3F7421FB431FF008ECE98 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		39F3F7461FB431FF008ECE98 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
