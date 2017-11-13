@@ -13,6 +13,7 @@
 
 #import <Masonry/Masonry.h>
 #import "UIColor+HEX.h"
+#import "MTEnums.h"
 
 @interface MTHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -131,8 +132,9 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    PhotoAlbumEntrance entrance = (indexPath.item == 3) ? PhotoAlbumEntranceJigsaw : PhotoAlbumEntranceBeauty;
     MTPhotoAlbumViewController *albumVC = [[MTPhotoAlbumViewController alloc] init];
-    
+    albumVC.entrance = entrance;
     [self.navigationController pushViewController:albumVC animated:YES];
 }
 

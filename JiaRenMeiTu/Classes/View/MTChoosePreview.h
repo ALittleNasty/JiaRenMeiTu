@@ -10,6 +10,20 @@
  */
 #import <UIKit/UIKit.h>
 
+@protocol MTChoosePreviewDelegate <NSObject>
+
+@required
+
+- (void)startJigsawButtonClick;
+
+@end
+
 @interface MTChoosePreview : UIView
+
+/** 图片数组 */
+@property (nonatomic, copy) NSArray *images;
+
+/** 代理 */
+@property (nonatomic, assign) id <MTChoosePreviewDelegate> delegate;
 
 @end

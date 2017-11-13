@@ -10,6 +10,7 @@
 #import "MTJigsawViewController.h" // 拼图
 #import "MTPhotoBeautyController.h" // 美图
 
+#import "MTChoosePreview.h"
 #import "MTPhotoCollectionCell.h"
 
 #import "MTPhotoModel.h"
@@ -19,10 +20,13 @@
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
 
-@interface MTPhotoAlbumViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface MTPhotoAlbumViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, MTChoosePreviewDelegate>
 
 /** collectionView */
 @property (nonatomic, strong) UICollectionView *collectionView;
+
+/** 预览视图 */
+@property (nonatomic, strong) MTChoosePreview *preview;
 
 /** 图片 */
 @property (nonatomic, strong) NSMutableArray *photos;
@@ -56,6 +60,7 @@
     self.photos = [NSMutableArray array];
     if (self.entrance == PhotoAlbumEntranceJigsaw) {
         self.choosenPhotos = [NSMutableArray array];
+        [self initChoosePreview];
     }
 }
 
@@ -64,11 +69,14 @@
 /** 添加 CollectionView */
 - (void)initCollectionView
 {
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat bottomPadding = (self.entrance == PhotoAlbumEntranceJigsaw) ? ((screenWidth - 30.0) * 0.25 + 50.0) : 0.0;
+    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     layout.minimumLineSpacing = 4.0;
     layout.minimumInteritemSpacing = 4.0;
-    CGFloat itemWH = ([UIScreen mainScreen].bounds.size.width - 8.0)/3;
+    CGFloat itemWH = (screenWidth - 8.0)/3;
     layout.itemSize = CGSizeMake(itemWH, itemWH);
     
     _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
@@ -78,7 +86,21 @@
     [self.view addSubview:_collectionView];
     [_collectionView registerNib:[MTPhotoCollectionCell nib] forCellWithReuseIdentifier:PhotoCollectionCellID];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(0.0, 0.0, bottomPadding, 0.0));
+    }];
+}
+
+/** 添加选择图片预览试图 */
+- (void)initChoosePreview
+{
+    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = (screenWidth - 30.0) * 0.25 + 50.0;
+    _preview = [[MTChoosePreview alloc] init];
+    _preview.delegate = self;
+    [self.view addSubview:_preview];
+    [_preview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@(height));
     }];
 }
 
@@ -110,17 +132,42 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    MTPhotoModel *photo = self.photos[indexPath.item];
     if (self.entrance == PhotoAlbumEntranceJigsaw) { // 选择多张图片拼图
         
-        MTJigsawViewController *jigsawVC = [[MTJigsawViewController alloc] init];
-        [self.navigationController pushViewController:jigsawVC animated:YES];
+        if (photo.isChoosen == NO) {
+            
+            if (self.choosenPhotos.count >= 4) {
+                [SVProgressHUD setMinimumDismissTimeInterval:1.0];
+                [SVProgressHUD showErrorWithStatus:@"最多只能选择4张图片!"];
+                return;
+            }
+            
+            [self.choosenPhotos addObject:photo.image];
+        } else {
+            [self.choosenPhotos removeObject:photo.image];
+        }
+        
+        _preview.images = [self.choosenPhotos copy];
+        photo.isChoosen = !photo.isChoosen;
+        [_collectionView reloadItemsAtIndexPaths:@[indexPath]];
+        
     } else {    // 选择一张图片美图
         
-        MTPhotoModel *photo = self.photos[indexPath.item];
+        
         MTPhotoBeautyController *beautyVC = [[MTPhotoBeautyController alloc] init];
         beautyVC.originalImage = photo.image;
         [self.navigationController pushViewController:beautyVC animated:YES];
     }
+}
+
+#pragma mark - MTChoosePreviewDelegate
+
+- (void)startJigsawButtonClick
+{
+    MTJigsawViewController *jigsawVC = [[MTJigsawViewController alloc] init];
+    jigsawVC.images = [self.choosenPhotos copy];
+    [self.navigationController pushViewController:jigsawVC animated:YES];
 }
 
 #pragma mark - Helper
