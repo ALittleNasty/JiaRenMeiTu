@@ -40,6 +40,18 @@
     [self addCollectionView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+}
+
 #pragma mark - UI Confifure
 
 /** 添加高斯模糊背景图片 */
@@ -121,7 +133,7 @@
 {
     MTPhotoAlbumViewController *albumVC = [[MTPhotoAlbumViewController alloc] init];
     
-    [self presentViewController:albumVC animated:YES completion:NULL];
+    [self.navigationController pushViewController:albumVC animated:YES];
 }
 
 #pragma mark - Lazy Load

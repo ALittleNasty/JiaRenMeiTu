@@ -53,8 +53,9 @@
         if (finished) {
             
             MTHomeViewController *homeVC = [[MTHomeViewController alloc] init];
+            UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:homeVC];
             AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            [delegate.window setRootViewController:homeVC];
+            [delegate.window setRootViewController:naviVC];
         }
     }];
 }

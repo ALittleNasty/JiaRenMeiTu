@@ -11,6 +11,7 @@
 #import "MTPhotoCollectionCell.h"
 
 #import <Masonry/Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
 
@@ -20,7 +21,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 /** 图片 */
-@property (nonatomic, copy) NSArray *photos;
+@property (nonatomic, strong) NSMutableArray *photos;
 
 @end
 
@@ -29,10 +30,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"图库";
+    self.photos = [NSMutableArray array];
     
     [self initCollectionView];
     
-    [self fetchSystemPhotoLibraryImage];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleDark];
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self getAllUIImageObjectWithAsserts:[self getAllphotosUsingPohotKit]];
+    });
 }
 
 #pragma mark - UI Configure
@@ -73,6 +81,7 @@
 {
     MTPhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCollectionCellID forIndexPath:indexPath];
     
+    cell.photoImageView.image = self.photos[indexPath.item];
     
     return cell;
 }
@@ -89,38 +98,73 @@
 
 #pragma mark - Helper
 
-- (void)fetchSystemPhotoLibraryImage
+/** iOS 8.0 以上获取所有照片用Photos.h这个库 */
+-(NSMutableArray*)getAllphotosUsingPohotKit
 {
-    PHFetchOptions *options = [PHFetchOptions new];
-//    PHFetchResult *topLevelUserCollections = [PHAssetCollection fetchTopLevelUserCollectionsWithOptions:options];
-    PHAssetCollectionSubtype subType = PHAssetCollectionSubtypeAlbumRegular;
-    PHFetchResult *smartAlbumsResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum
-                                                                                subtype:subType
-                                                                                options:options];
+    NSMutableArray *array = [NSMutableArray array];
+    // 所有智能相册
+    PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     
-//    NSMutableArray *photoGroups = [NSMutableArray array];
-//    [topLevelUserCollections enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        if ([obj isKindOfClass:[PHAssetCollection class]]) {
-//            PHAssetCollection *asset = (PHAssetCollection *)obj;
-//            PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:asset options:[PHFetchOptions new]];
-//            if (result.count > 0) {
-//
-//            }
-//        }
-//    }];
-    
-    [smartAlbumsResult enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj isKindOfClass:[PHAssetCollection class]]) {
-            PHAssetCollection *asset = (PHAssetCollection *)obj;
-            PHFetchOptions *options = [[PHFetchOptions alloc] init];
-            options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-            
-            PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:asset options:options];
-            if(result.count > 0 && asset.assetCollectionSubtype != PHAssetCollectionSubtypeSmartAlbumVideos) {
-                
+    for (NSInteger i = 0; i < smartAlbums.count; i++) {
+        // 是否按创建时间排序
+        PHFetchOptions *option = [[PHFetchOptions alloc] init];
+        option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+        option.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
+        PHCollection *collection = smartAlbums[i];
+        //遍历获取相册
+        if ([collection isKindOfClass:[PHAssetCollection class]]) {
+//            NSLog(@"%@", collection.localizedTitle);
+            PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
+            PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+            if (fetchResult.count > 0) {
+                // 某个相册里面的所有PHAsset对象
+                NSArray *assets = [self getAllPhotosAssetInAblumCollection:assetCollection ascending:YES];
+                [array addObjectsFromArray:assets];
             }
         }
+    }
+    //返回相机胶卷内的所有照片
+    return array;
+}
+
+/** 获取相册里的所有图片的PHAsset对象 */
+- (NSArray *)getAllPhotosAssetInAblumCollection:(PHAssetCollection *)assetCollection ascending:(BOOL)ascending
+{
+    // 存放所有图片对象
+    NSMutableArray *assets = [NSMutableArray array];
+    
+    // 是否按创建时间排序
+    PHFetchOptions *option = [[PHFetchOptions alloc] init];
+    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:ascending]];
+    option.predicate = [NSPredicate predicateWithFormat:@"mediaType == %ld", PHAssetMediaTypeImage];
+    
+    // 获取所有图片对象
+    PHFetchResult *result = [PHAsset fetchAssetsInAssetCollection:assetCollection options:option];
+    // 遍历
+    [result enumerateObjectsUsingBlock:^(PHAsset *asset, NSUInteger idx, BOOL * _Nonnull stop) {
+        [assets addObject:asset];
     }];
+    return assets;
+}
+
+/** 获取所有的UIImage对象 */
+- (void)getAllUIImageObjectWithAsserts:(NSMutableArray <PHAsset *>*)asserts
+{
+    PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
+    options.synchronous = YES;
+    
+    for (PHAsset * assert in asserts) {
+        
+        [[PHImageManager defaultManager] requestImageForAsset:assert targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+            [self.photos addObject:result];
+        }];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [SVProgressHUD dismiss];
+        [self.collectionView reloadData];
+    });
 }
 
 @end
