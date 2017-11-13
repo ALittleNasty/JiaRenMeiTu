@@ -44,6 +44,7 @@
     
     CGFloat imgWidth = (screenWidth - 30.0) * 0.25;
     
+    // 创建标题提示文本
     _titleLabel = [[UILabel alloc] init];
     _titleLabel.font = [UIFont systemFontOfSize:14];
     _titleLabel.textColor = [UIColor colorWithHexString:@"#666666"];
@@ -55,6 +56,7 @@
         make.height.equalTo(@40);
     }];
     
+    // 创建拼图按钮
     _jigsawButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _jigsawButton.layer.cornerRadius = 5.0;
     _jigsawButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
@@ -70,6 +72,7 @@
         make.width.equalTo(@80);
     }];
     
+    // 循环创建imageView
     for (NSInteger i = 0; i < 4; i++) {
         
         UIImageView *imgView = [[UIImageView alloc] init];
@@ -87,8 +90,8 @@
 
 - (void)jigsawButtonAction
 {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(startJigsawButtonClick)]) {
-        [self.delegate startJigsawButtonClick];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(startJigsawButtonClickWithImages:)]) {
+        [self.delegate startJigsawButtonClickWithImages:_images];
     }
 }
 
@@ -98,17 +101,21 @@
 {
     _images = images;
     
+    // 先清空所有图片
     [self.imageViews enumerateObjectsUsingBlock:^(UIImageView *  _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
         imageView.image = nil;
     }];
     
+    // 如果没有图片按钮不可点击
     if (_images.count == 0) {
         [_jigsawButton setBackgroundColor:[UIColor colorWithHexString:@"#f2f2f2"]];
         return;
     }
     
+    // 图片个数大于0, 按钮可以点击
     [_jigsawButton setBackgroundColor:[UIColor mt_blueColor]];
     
+    // 显示图片
     for (NSInteger i = 0; i < _images.count; i++) {
         UIImage *img = _images[i];
         UIImageView *imgView = self.imageViews[i];

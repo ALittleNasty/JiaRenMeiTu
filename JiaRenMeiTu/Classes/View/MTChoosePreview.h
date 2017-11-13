@@ -14,7 +14,7 @@
 
 @required
 
-- (void)startJigsawButtonClick;
+- (void)startJigsawButtonClickWithImages:(NSArray <UIImage *>*)images;
 
 @end
 

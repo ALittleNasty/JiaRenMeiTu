@@ -163,10 +163,10 @@
 
 #pragma mark - MTChoosePreviewDelegate
 
-- (void)startJigsawButtonClick
+- (void)startJigsawButtonClickWithImages:(NSArray<UIImage *> *)images
 {
     MTJigsawViewController *jigsawVC = [[MTJigsawViewController alloc] init];
-    jigsawVC.images = [self.choosenPhotos copy];
+    jigsawVC.images = images;
     [self.navigationController pushViewController:jigsawVC animated:YES];
 }
 

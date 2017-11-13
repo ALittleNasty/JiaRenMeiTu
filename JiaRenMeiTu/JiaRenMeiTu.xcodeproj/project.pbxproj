@@ -11,6 +11,7 @@
 		3990A7DD1FB9458200079B0E /* MTPhotoBeautyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */; };
 		3990A7E11FB949E500079B0E /* MTPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E01FB949E500079B0E /* MTPhotoModel.m */; };
 		3990A7E71FB971F600079B0E /* MTChoosePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E61FB971F600079B0E /* MTChoosePreview.m */; };
+		3990A7EA1FB99B4D00079B0E /* MTJigsawBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E91FB99B4D00079B0E /* MTJigsawBottomView.m */; };
 		39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */; };
 		39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */; };
 		39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */; };
@@ -39,6 +40,8 @@
 		3990A7E31FB94C0100079B0E /* MTEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTEnums.h; sourceTree = "<group>"; };
 		3990A7E51FB971F600079B0E /* MTChoosePreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTChoosePreview.h; sourceTree = "<group>"; };
 		3990A7E61FB971F600079B0E /* MTChoosePreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTChoosePreview.m; sourceTree = "<group>"; };
+		3990A7E81FB99B4D00079B0E /* MTJigsawBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTJigsawBottomView.h; sourceTree = "<group>"; };
+		3990A7E91FB99B4D00079B0E /* MTJigsawBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJigsawBottomView.m; sourceTree = "<group>"; };
 		39E82EE21FB581C500C3DEEF /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
 		39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
 		39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTHomeCollectionCell.h; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 			children = (
 				3990A7E51FB971F600079B0E /* MTChoosePreview.h */,
 				3990A7E61FB971F600079B0E /* MTChoosePreview.m */,
+				3990A7E81FB99B4D00079B0E /* MTJigsawBottomView.h */,
+				3990A7E91FB99B4D00079B0E /* MTJigsawBottomView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +367,7 @@
 				39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */,
 				39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */,
 				39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */,
+				3990A7EA1FB99B4D00079B0E /* MTJigsawBottomView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
