@@ -1,25 +1,25 @@
 //
-//  MTJigsawViewController.m
+//  MTPhotoBeautyController.m
 //  JiaRenMeiTu
 //
-//  Created by ALittleNasty on 2017/11/10.
+//  Created by ALittleNasty on 2017/11/13.
 //  Copyright © 2017年 ALittleNasty. All rights reserved.
 //
 
-#import "MTJigsawViewController.h"
+#import "MTPhotoBeautyController.h"
 
-@interface MTJigsawViewController ()
+@interface MTPhotoBeautyController ()
 
 @end
 
-@implementation MTJigsawViewController
+@implementation MTPhotoBeautyController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"拼图";
-}
+    self.navigationItem.title = @"美图";
+} 
 
 @end

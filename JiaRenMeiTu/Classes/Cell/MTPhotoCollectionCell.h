@@ -9,10 +9,14 @@
  *  图片选择cell
  */
 #import <UIKit/UIKit.h>
+@class MTPhotoModel;
 
 UIKIT_EXTERN NSString *PhotoCollectionCellID;
 
 @interface MTPhotoCollectionCell : UICollectionViewCell
+
+/** model */
+@property (nonatomic, strong) MTPhotoModel  *model;
 
 @property (weak, nonatomic) IBOutlet UIImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *chooseIconImageView;

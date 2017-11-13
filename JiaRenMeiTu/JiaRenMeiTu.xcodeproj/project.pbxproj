@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		23B2A1A92BA9FF102F88D7B6 /* libPods-JiaRenMeiTu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */; };
+		3990A7DD1FB9458200079B0E /* MTPhotoBeautyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */; };
+		3990A7E11FB949E500079B0E /* MTPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E01FB949E500079B0E /* MTPhotoModel.m */; };
+		3990A7E71FB971F600079B0E /* MTChoosePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E61FB971F600079B0E /* MTChoosePreview.m */; };
 		39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */; };
 		39E82EE91FB5856600C3DEEF /* MTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E82EE71FB5856600C3DEEF /* MTHomeCollectionCell.m */; };
 		39E82EEA1FB5856600C3DEEF /* MTHomeCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39E82EE81FB5856600C3DEEF /* MTHomeCollectionCell.xib */; };
@@ -29,6 +32,13 @@
 
 /* Begin PBXFileReference section */
 		00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiaRenMeiTu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3990A7DB1FB9458200079B0E /* MTPhotoBeautyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoBeautyController.h; sourceTree = "<group>"; };
+		3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBeautyController.m; sourceTree = "<group>"; };
+		3990A7DF1FB949E500079B0E /* MTPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoModel.h; sourceTree = "<group>"; };
+		3990A7E01FB949E500079B0E /* MTPhotoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoModel.m; sourceTree = "<group>"; };
+		3990A7E31FB94C0100079B0E /* MTEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTEnums.h; sourceTree = "<group>"; };
+		3990A7E51FB971F600079B0E /* MTChoosePreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTChoosePreview.h; sourceTree = "<group>"; };
+		3990A7E61FB971F600079B0E /* MTChoosePreview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTChoosePreview.m; sourceTree = "<group>"; };
 		39E82EE21FB581C500C3DEEF /* UIColor+HEX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HEX.h"; sourceTree = "<group>"; };
 		39E82EE31FB581C500C3DEEF /* UIColor+HEX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HEX.m"; sourceTree = "<group>"; };
 		39E82EE61FB5856600C3DEEF /* MTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTHomeCollectionCell.h; sourceTree = "<group>"; };
@@ -73,6 +83,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3990A7DE1FB949C000079B0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3990A7DF1FB949E500079B0E /* MTPhotoModel.h */,
+				3990A7E01FB949E500079B0E /* MTPhotoModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3990A7E21FB94BE600079B0E /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				3990A7E31FB94C0100079B0E /* MTEnums.h */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		3990A7E41FB9719500079B0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3990A7E51FB971F600079B0E /* MTChoosePreview.h */,
+				3990A7E61FB971F600079B0E /* MTChoosePreview.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		39E82EE11FB580D500C3DEEF /* Vender */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +166,12 @@
 		39F3F7511FB435A8008ECE98 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				39E82EE51FB5853900C3DEEF /* Cell */,
 				39E82EE11FB580D500C3DEEF /* Vender */,
 				39F3F7591FB456D9008ECE98 /* Images */,
+				3990A7E21FB94BE600079B0E /* Util */,
+				3990A7E41FB9719500079B0E /* View */,
+				3990A7DE1FB949C000079B0E /* Model */,
+				39E82EE51FB5853900C3DEEF /* Cell */,
 				39F3F7521FB4360E008ECE98 /* Controller */,
 			);
 			path = Classes;
@@ -149,6 +188,8 @@
 				39E82EEF1FB595BF00C3DEEF /* MTPhotoAlbumViewController.m */,
 				39E82EEB1FB5956700C3DEEF /* MTJigsawViewController.h */,
 				39E82EEC1FB5956700C3DEEF /* MTJigsawViewController.m */,
+				3990A7DB1FB9458200079B0E /* MTPhotoBeautyController.h */,
+				3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -312,8 +353,11 @@
 				39F3F7581FB4363D008ECE98 /* MTHomeViewController.m in Sources */,
 				39F3F74B1FB431FF008ECE98 /* main.m in Sources */,
 				39E82EF41FB5994900C3DEEF /* MTPhotoCollectionCell.m in Sources */,
+				3990A7DD1FB9458200079B0E /* MTPhotoBeautyController.m in Sources */,
+				3990A7E71FB971F600079B0E /* MTChoosePreview.m in Sources */,
 				39E82EF01FB595BF00C3DEEF /* MTPhotoAlbumViewController.m in Sources */,
 				39E82EED1FB5956700C3DEEF /* MTJigsawViewController.m in Sources */,
+				3990A7E11FB949E500079B0E /* MTPhotoModel.m in Sources */,
 				39F3F7551FB4361F008ECE98 /* MTLaunchViewController.m in Sources */,
 				39F3F73D1FB431FF008ECE98 /* AppDelegate.m in Sources */,
 				39E82EE41FB581C500C3DEEF /* UIColor+HEX.m in Sources */,

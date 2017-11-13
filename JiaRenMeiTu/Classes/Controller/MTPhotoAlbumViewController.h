@@ -9,12 +9,8 @@
  *  相册图片选择
  */
 #import <UIKit/UIKit.h>
+#import "MTEnums.h"
 
-typedef NS_ENUM(NSUInteger, PhotoAlbumEntrance) {
-    
-    PhotoAlbumEntranceBeauty = 0,   // 美化图片
-    PhotoAlbumEntranceJigsaw = 1    // 拼图
-};
 
 @interface MTPhotoAlbumViewController : UIViewController
 

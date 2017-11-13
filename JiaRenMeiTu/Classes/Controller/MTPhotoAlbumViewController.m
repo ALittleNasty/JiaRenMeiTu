@@ -7,8 +7,12 @@
 //
 
 #import "MTPhotoAlbumViewController.h"
+#import "MTJigsawViewController.h" // 拼图
+#import "MTPhotoBeautyController.h" // 美图
 
 #import "MTPhotoCollectionCell.h"
+
+#import "MTPhotoModel.h"
 
 #import <Masonry/Masonry.h>
 #import <SVProgressHUD/SVProgressHUD.h>
@@ -23,6 +27,9 @@
 /** 图片 */
 @property (nonatomic, strong) NSMutableArray *photos;
 
+/** 选中的图片 */
+@property (nonatomic, strong) NSMutableArray *choosenPhotos;
+
 @end
 
 @implementation MTPhotoAlbumViewController
@@ -30,9 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.title = @"图库";
-    self.photos = [NSMutableArray array];
+    
+    [self basicSetup];
     
     [self initCollectionView];
     
@@ -43,8 +49,19 @@
     });
 }
 
+- (void)basicSetup
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.title = @"图库";
+    self.photos = [NSMutableArray array];
+    if (self.entrance == PhotoAlbumEntranceJigsaw) {
+        self.choosenPhotos = [NSMutableArray array];
+    }
+}
+
 #pragma mark - UI Configure
 
+/** 添加 CollectionView */
 - (void)initCollectionView
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
@@ -81,7 +98,7 @@
 {
     MTPhotoCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCollectionCellID forIndexPath:indexPath];
     
-    cell.photoImageView.image = self.photos[indexPath.item];
+    cell.model = self.photos[indexPath.item];
     
     return cell;
 }
@@ -93,7 +110,17 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"%s", __func__);
+    if (self.entrance == PhotoAlbumEntranceJigsaw) { // 选择多张图片拼图
+        
+        MTJigsawViewController *jigsawVC = [[MTJigsawViewController alloc] init];
+        [self.navigationController pushViewController:jigsawVC animated:YES];
+    } else {    // 选择一张图片美图
+        
+        MTPhotoModel *photo = self.photos[indexPath.item];
+        MTPhotoBeautyController *beautyVC = [[MTPhotoBeautyController alloc] init];
+        beautyVC.originalImage = photo.image;
+        [self.navigationController pushViewController:beautyVC animated:YES];
+    }
 }
 
 #pragma mark - Helper
@@ -153,10 +180,19 @@
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     options.synchronous = YES;
     
+    
+    
     for (PHAsset * assert in asserts) {
         
+        __block MTPhotoModel *photo = [[MTPhotoModel alloc] init];
+        photo.entrance = self.entrance;
+        photo.isChoosen = NO;
+        photo.assert = assert;
+        
         [[PHImageManager defaultManager] requestImageForAsset:assert targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
-            [self.photos addObject:result];
+            
+            photo.image = result;
+            [self.photos addObject:photo];
         }];
     }
     

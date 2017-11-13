@@ -7,6 +7,7 @@
 //
 
 #import "MTPhotoCollectionCell.h"
+#import "MTPhotoModel.h"
 
 NSString *PhotoCollectionCellID = @"PhotoCollectionCellIdentifier";
 
@@ -15,6 +16,22 @@ NSString *PhotoCollectionCellID = @"PhotoCollectionCellIdentifier";
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+
+- (void)setModel:(MTPhotoModel *)model
+{
+    _model = model;
+    
+    self.photoImageView.image = _model.image;
+    
+    if (_model.entrance == PhotoAlbumEntranceJigsaw) {
+        
+        self.chooseIconImageView.hidden = !_model.isChoosen;
+    } else {
+        
+        self.chooseIconImageView.hidden = YES;
+    }
+    
 }
 
 + (UINib *)nib
