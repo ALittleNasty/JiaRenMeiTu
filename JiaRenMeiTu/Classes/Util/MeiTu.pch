@@ -1,0 +1,23 @@
+//
+//  MeiTu.pch
+//  JiaRenMeiTu
+//
+//  Created by ALittleNasty on 2017/11/14.
+//  Copyright © 2017年 ALittleNasty. All rights reserved.
+//
+
+#ifndef MeiTu_pch
+#define MeiTu_pch
+///Users/huyang/Desktop/GithubDemo/JiaRenMeiTu/JiaRenMeiTu/Classes/Util/MeiTu.pch
+//// Include any system framework and library headers here that should be included in all compilation units.
+//// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+///Users/huyang/Desktop/BeeCredit/Project/CP/CP/CPPrefix.pch
+//$(SRCROOT)/Classes/Util/MeiTu.pch
+
+#import "UIColor+HEX.h"
+#import "MTEnums.h"
+
+#import <Masonry/Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#endif /* MeiTu_pch */

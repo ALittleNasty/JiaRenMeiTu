@@ -7,8 +7,6 @@
 //
 
 #import "MTChoosePreview.h"
-#import <Masonry/Masonry.h>
-#import "UIColor+HEX.h"
 
 @interface MTChoosePreview()
 

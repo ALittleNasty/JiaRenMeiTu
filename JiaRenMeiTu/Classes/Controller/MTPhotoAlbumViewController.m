@@ -15,8 +15,7 @@
 
 #import "MTPhotoModel.h"
 
-#import <Masonry/Masonry.h>
-#import <SVProgressHUD/SVProgressHUD.h>
+
 #import <Photos/Photos.h>
 #import <PhotosUI/PhotosUI.h>
 

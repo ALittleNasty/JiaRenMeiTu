@@ -23,9 +23,17 @@ typedef NS_ENUM(NSUInteger, PhotoAlbumEntrance) {
  */
 typedef NS_ENUM(NSUInteger, ImageJigsawType) {
     
-    ImageJigsawTypeTwo = 0,      // 两张图片拼接
-    ImageJigsawTypeThree = 1,    // 三张图片拼接
-    ImageJigsawTypeFour = 2      // 四张图片拼接
+    ImageJigsawTypeTwoVertical = 0,         // 两张图片竖直拼接(两张默认)
+    ImageJigsawTypeTwoHorizontal = 1,       // 两张图片水平拼接
+    ImageJigsawTypeThreeVertical = 2,       // 三张图片竖直拼接(三张默认)
+    ImageJigsawTypeThreeHorizontal = 3,     // 三张图片水平拼接
+    ImageJigsawTypeThreeTopBig = 4,         // 三张图片上方大图拼接
+    ImageJigsawTypeThreeBottomBig = 5,      // 三张图片底部大图拼接
+    ImageJigsawTypeThreeLeftBig = 6,        // 三张图片左边大图拼接
+    ImageJigsawTypeThreeRightBig = 7,       // 三张图片右边大图拼接
+    ImageJigsawTypeFourVertical = 8,        // 四张图片竖直拼接(四张默认)
+    ImageJigsawTypeFourHorizontal = 9,      // 四张图片水平拼接
+    ImageJigsawTypeFourSquare = 10          // 四张图片"田"字拼接
 };
 
 #endif /* MTEnums_h */

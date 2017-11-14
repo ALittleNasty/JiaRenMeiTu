@@ -11,9 +11,7 @@
 
 #import "MTHomeCollectionCell.h"
 
-#import <Masonry/Masonry.h>
-#import "UIColor+HEX.h"
-#import "MTEnums.h"
+
 
 @interface MTHomeViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
