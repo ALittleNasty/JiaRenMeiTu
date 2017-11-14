@@ -9,7 +9,7 @@
 #import "MTJigsawViewController.h"
 #import "MTJigsawBottomView.h"
 
-@interface MTJigsawViewController ()
+@interface MTJigsawViewController ()<JigsawBottomViewDelegate>
 
 /** 底部工具视图 */
 @property (nonatomic, strong) MTJigsawBottomView *bottomView;
@@ -28,14 +28,29 @@
     [self initBottomView];
 }
 
+#pragma mark - UI Configure
+
 - (void)initBottomView
 {
     _bottomView = [[MTJigsawBottomView alloc] initWithFrame:self.view.bounds withCount:_images.count];
+    _bottomView.delegate = self;
     [self.view addSubview:_bottomView];
     [_bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
         make.height.equalTo(@100);
     }];
+}
+
+#pragma mark - JigsawBottomViewDelegate
+
+- (void)jigsawTypeChanged:(ImageJigsawType)type
+{
+    DLog(@"%zd", type);
+}
+
+- (void)changeJigsawBorderStyle:(BOOL)hasBorder
+{
+    DLog(@"%@", hasBorder ? @"无边框" : @"有边框");
 }
 
 @end

@@ -34,9 +34,10 @@
 
 /* Begin PBXFileReference section */
 		00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiaRenMeiTu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3973079F1FBA967F007BCA41 /* MeiTu.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeiTu.pch; sourceTree = "<group>"; };
 		397307A01FBAC41C007BCA41 /* MTJigsawTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTJigsawTypeView.h; sourceTree = "<group>"; };
 		397307A11FBAC41C007BCA41 /* MTJigsawTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJigsawTypeView.m; sourceTree = "<group>"; };
+		397307A31FBADF59007BCA41 /* MTMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTMacros.h; sourceTree = "<group>"; };
+		397307A61FBAE4BE007BCA41 /* JRMT.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRMT.pch; sourceTree = "<group>"; };
 		3990A7DB1FB9458200079B0E /* MTPhotoBeautyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoBeautyController.h; sourceTree = "<group>"; };
 		3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBeautyController.m; sourceTree = "<group>"; };
 		3990A7DF1FB949E500079B0E /* MTPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoModel.h; sourceTree = "<group>"; };
@@ -103,7 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				3990A7E31FB94C0100079B0E /* MTEnums.h */,
-				3973079F1FBA967F007BCA41 /* MeiTu.pch */,
+				397307A31FBADF59007BCA41 /* MTMacros.h */,
+				397307A61FBAE4BE007BCA41 /* JRMT.pch */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -506,7 +508,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GGHP6SBZUF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Classes/Util/MeiTu.pch;
+				GCC_PREFIX_HEADER = Classes/Util/JRMT.pch;
 				INFOPLIST_FILE = JiaRenMeiTu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -525,7 +527,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GGHP6SBZUF;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = Classes/Util/MeiTu.pch;
+				GCC_PREFIX_HEADER = Classes/Util/JRMT.pch;
 				INFOPLIST_FILE = JiaRenMeiTu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

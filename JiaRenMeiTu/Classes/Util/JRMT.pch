@@ -1,0 +1,19 @@
+//
+//  JRMT.pch
+//  JiaRenMeiTu
+//
+//  Created by ALittleNasty on 2017/11/14.
+//  Copyright © 2017年 ALittleNasty. All rights reserved.
+//
+
+#ifndef JRMT_pch
+#define JRMT_pch
+
+#import "UIColor+HEX.h"
+#import "MTEnums.h"
+#import "MTMacros.h"
+
+#import <Masonry/Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+
+#endif /* JRMT_pch */

@@ -129,6 +129,7 @@ static NSString *cellID = @"MTJigsawBottomCellIdentifier";
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor whiteColor];
+    _collectionView.showsHorizontalScrollIndicator = NO;
     [self addSubview:_collectionView];
     [_collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mas_top);
@@ -155,7 +156,11 @@ static NSString *cellID = @"MTJigsawBottomCellIdentifier";
 
 - (void)boxButtonAction:(UIButton *)btn
 {
+    [btn setSelected:!btn.isSelected];
     
+    if (self.delegate && [self.delegate respondsToSelector:@selector(changeJigsawBorderStyle:)]) {
+        [self.delegate changeJigsawBorderStyle:!btn.isSelected];
+    } 
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -181,7 +186,10 @@ static NSString *cellID = @"MTJigsawBottomCellIdentifier";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    NSInteger type = [_types[indexPath.item] integerValue];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(jigsawTypeChanged:)]) {
+        [self.delegate jigsawTypeChanged:(ImageJigsawType)type];
+    }
 }
 
 @end
