@@ -26,9 +26,16 @@
     self.navigationItem.title = @"拼图";
     
     [self initBottomView];
+    [self setNavigationItem];
 }
 
 #pragma mark - UI Configure
+
+- (void)setNavigationItem
+{
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveItemAction)];
+    self.navigationItem.rightBarButtonItem = saveItem;
+}
 
 - (void)initBottomView
 {
@@ -51,6 +58,13 @@
 - (void)changeJigsawBorderStyle:(BOOL)hasBorder
 {
     DLog(@"%@", hasBorder ? @"无边框" : @"有边框");
+}
+
+#pragma mark - Action
+
+- (void)saveItemAction
+{
+    
 }
 
 @end
