@@ -12,4 +12,6 @@
 
 @interface MTJigsawBottomView : UIView
 
+- (instancetype)initWithFrame:(CGRect)frame withCount:(NSInteger)count;
+
 @end

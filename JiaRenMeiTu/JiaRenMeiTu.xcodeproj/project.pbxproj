@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		23B2A1A92BA9FF102F88D7B6 /* libPods-JiaRenMeiTu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */; };
+		397307A21FBAC41C007BCA41 /* MTJigsawTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 397307A11FBAC41C007BCA41 /* MTJigsawTypeView.m */; };
 		3990A7DD1FB9458200079B0E /* MTPhotoBeautyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */; };
 		3990A7E11FB949E500079B0E /* MTPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E01FB949E500079B0E /* MTPhotoModel.m */; };
 		3990A7E71FB971F600079B0E /* MTChoosePreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 3990A7E61FB971F600079B0E /* MTChoosePreview.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		00B6D648BAB5C41FE6FD04E3 /* libPods-JiaRenMeiTu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JiaRenMeiTu.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3973079F1FBA967F007BCA41 /* MeiTu.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeiTu.pch; sourceTree = "<group>"; };
+		397307A01FBAC41C007BCA41 /* MTJigsawTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTJigsawTypeView.h; sourceTree = "<group>"; };
+		397307A11FBAC41C007BCA41 /* MTJigsawTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTJigsawTypeView.m; sourceTree = "<group>"; };
 		3990A7DB1FB9458200079B0E /* MTPhotoBeautyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoBeautyController.h; sourceTree = "<group>"; };
 		3990A7DC1FB9458200079B0E /* MTPhotoBeautyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTPhotoBeautyController.m; sourceTree = "<group>"; };
 		3990A7DF1FB949E500079B0E /* MTPhotoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTPhotoModel.h; sourceTree = "<group>"; };
@@ -112,6 +115,8 @@
 				3990A7E61FB971F600079B0E /* MTChoosePreview.m */,
 				3990A7E81FB99B4D00079B0E /* MTJigsawBottomView.h */,
 				3990A7E91FB99B4D00079B0E /* MTJigsawBottomView.m */,
+				397307A01FBAC41C007BCA41 /* MTJigsawTypeView.h */,
+				397307A11FBAC41C007BCA41 /* MTJigsawTypeView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +368,7 @@
 				3990A7DD1FB9458200079B0E /* MTPhotoBeautyController.m in Sources */,
 				3990A7E71FB971F600079B0E /* MTChoosePreview.m in Sources */,
 				39E82EF01FB595BF00C3DEEF /* MTPhotoAlbumViewController.m in Sources */,
+				397307A21FBAC41C007BCA41 /* MTJigsawTypeView.m in Sources */,
 				39E82EED1FB5956700C3DEEF /* MTJigsawViewController.m in Sources */,
 				3990A7E11FB949E500079B0E /* MTPhotoModel.m in Sources */,
 				39F3F7551FB4361F008ECE98 /* MTLaunchViewController.m in Sources */,
