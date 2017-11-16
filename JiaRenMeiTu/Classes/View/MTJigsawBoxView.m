@@ -30,8 +30,18 @@ static CGFloat JBorderPadding = 5.f;
         
         _images = images;
         _type = type;
+        
+        [self initSubviews];
     }
     return self;
+}
+
+- (void)initSubviews
+{
+    UIImage *img = _images.firstObject;
+    
+    VIPhotoView *photoView = [[VIPhotoView alloc] initWithFrame:self.bounds andImage:img];
+    [self addSubview:photoView]; 
 }
 
 @end
